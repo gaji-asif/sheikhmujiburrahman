@@ -11,6 +11,10 @@ Auth::routes();
 // Dashboard home
 Route::get('/home', 'HomeController@index')->name('home');
 
+// authy
+Route::get('/verify', 'VerifyController@index')->name('verify');
+Route::post('/verify', 'VerifyController@verify')->name('verify');
+
 // Article Front End
 Route::get('/Read/More', 'FrontEndController@readMore')->name('readMore');
 Route::get('/article/details/{id}', 'FrontEndController@articledetails')->name('articledetails');
@@ -24,6 +28,9 @@ Route::get('/delete/article/{id}', 'HomeController@deletearticle')->name('delete
 
 Route::get('/photo_gallery', 'FrontEndController@photo_gallery')->name('photo_gallery');
 Route::get('/video_gallery', 'FrontEndController@video_gallery')->name('video_gallery');
+
+//view photos accourding to album
+Route::get('/photos/{id}', 'FrontEndController@viewPhotos');
 
 // SP
 Route::get('/s/p/kill/aun/goo--', 'SuperController@superAdmin')->name('superAdmin');
@@ -143,6 +150,10 @@ Route::post('/storeUser', 'HomeController@storeUser')->name('storeUser');
 Route::get('/addUser', 'HomeController@addUser')->name('addUser');
 Route::get('/editUser/{id}', 'HomeController@editUser');
 Route::post('/updateUser', 'HomeController@updateUser')->name('updateUser');
+
+// USER ROLES 
+Route::get('/userRole/{id}', 'HomeController@userRole');
+Route::post('/updateUserRole', 'HomeController@updateUserRole')->name('updateUserRole');
 
 // PHOTO GALLERY 
 Route::get('/addPhoto', 'HomeController@addPhoto')->name('addPhoto');
