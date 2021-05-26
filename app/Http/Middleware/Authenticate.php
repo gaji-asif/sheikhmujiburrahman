@@ -22,10 +22,10 @@ class Authenticate extends Middleware
     //     return \redirect('verify');
     // }
     
-    protected function redirectTo($request)
-    {
-        if (! $request->expectsJson()) {
-            return route('login');
-        }
-    }
+    // protected function redirectTo($request)
+    // {
+    //     if (! $request->expectsJson()) {
+    //         return route('login');
+    //     }
+    // }
 }
